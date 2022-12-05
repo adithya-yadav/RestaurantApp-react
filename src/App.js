@@ -1,11 +1,12 @@
 import React from "react";
-//import Cart from "./Components/Cart/Cart.js";
 import Header from "./Components/Layout/Header"
 import Meals from "./Components/meals/Meals";
+import Cart from "./Components/Cart/Cart";
 
 function App() {
   return (
     <React.Fragment>
+      <Cart/>
       <Header/>
       <main>
         <Meals/>
