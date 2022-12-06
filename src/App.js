@@ -7,7 +7,6 @@ import CartContextProvider from "./Components/store/CartContextProvider";
 function App() {
 
   const [showCart,setShowCart] = useState(false)
-
   
   function ShowCartfunction(){
     setShowCart(true)

@@ -7,12 +7,26 @@ const Mealitem = (props) => {
   const cartCtx = useContext(CartContext);
   function onAddToCardHandler (amount){
     // console.log(amount)
+    // cartCtx.items.push({
+    //   id: props.id,
+    //   name: props.name,
+    //   amount:amount,
+    //   price: props.price,
+    // });
+    const itemInd =cartCtx.items.findIndex(item=>{
+      return item.id === props.id
+  })
+  if(itemInd===-1){
     cartCtx.items.push({
       id: props.id,
       name: props.name,
       amount:amount,
       price: props.price,
     });
+  }else{
+    cartCtx.items[itemInd].amount++
+  }
+
     
     // for(var i=0; i<cartCtx.items.length; i++){
     //     if(cartCtx.items[i].id == props.id){
@@ -22,13 +36,13 @@ const Mealitem = (props) => {
     //         cartCtx.items.push({
     //             id: props.id,
     //             name: props.name,
-    //             amount:amount,
+    //             amount:amount-1,
     //             price: props.price,
     //           });
     //     }
     // } 
-    // console.log(cartCtx.items);
-    // console.log(props.amount)
+    console.log(cartCtx.items);
+    console.log(props.amount)
     
   }
 
