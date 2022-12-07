@@ -16,11 +16,16 @@ const MealItemForm = (props) => {
       enteredAmountNumber > 5
     ) {
       setAmountIsValid(false)
+      setTimeout(()=>{
+        setAmountIsValid(true)
+      },3000)
+      amountInputRef.current.value="1"
       return;
     }
-
+    amountInputRef.current.value="1"
     props.onAddToCard(enteredAmountNumber)
   };
+
   return (
     <form className={classes.form} onSubmit={submitHandler}>
       <Input
@@ -29,8 +34,8 @@ const MealItemForm = (props) => {
         input={{
           id: "amount",
           type: "number",
-          min: "1",
-          max: "5",
+           min: "1",
+          // max: "5",
           step: "1",
           defaultValue: "1",
         }}

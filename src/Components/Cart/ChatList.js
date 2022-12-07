@@ -4,29 +4,23 @@ import classes from "./ChatList.module.css";
 
 const CartList = (props) => {
     const cartCtx = useContext(CartContext)
+    const {items} = cartCtx
     const addHandler = () => {
         const itemInd =cartCtx.items.findIndex(item=>{
             return item.id === props.id
         })
-        cartCtx.items[itemInd].amount++
+        cartCtx.addItem({
+          id:items[itemInd].id,
+          name:items[itemInd].name,
+          amount:1,
+          price:items[itemInd].price
+        })
       };
       const removeHandler = () => {
-        const itemInd =cartCtx.items.findIndex(item=>{
+        const itemId =cartCtx.items.findIndex(item=>{
             return item.id === props.id
         })
-        console.log(itemInd)
-        if(props.amount===1){
-            cartCtx.items.splice(itemInd, 1)
-            return
-        }else{
-            cartCtx.items[itemInd].amount--
-            // for(let i=0; i<cartCtx.items.length; i++){
-            //     if(cartCtx.items[i].id == props.id){
-            //         cartCtx.items[i].amount--
-            //         return
-            //     }
-            // }    
-        } 
+        cartCtx.removeItem(itemId)
       };
     
   return (

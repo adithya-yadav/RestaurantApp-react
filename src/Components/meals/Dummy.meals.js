@@ -23,6 +23,18 @@ const DUMMY_MEALS = [
       description: 'Healthy...and green...',
       price: 18.99,
     },
+    {
+      id: 'm5',
+      name: 'Chicken Biryani',
+      description: 'cookedRice..and Delicious Chicken...',
+      price: 30.91,
+    },
+    {
+      id: 'm6',
+      name: 'Grill Chicken',
+      description: 'Fully Grill...and tasty...',
+      price: 40.00,
+    },
   ];
 
   export default DUMMY_MEALS

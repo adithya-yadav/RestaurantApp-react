@@ -6,12 +6,11 @@ import CartList from "./ChatList";
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
-  let total = 0;
+  const total = cartCtx.totalAmount
  
   const cartItems = (
     <ul className={classes["cart-items"]}>
       {cartCtx.items.map((item) => {
-        total += item.price * item.amount;
         return (
           <CartList
             key={item.id}
@@ -29,7 +28,7 @@ const Cart = (props) => {
       {cartItems}
       <div className={classes.total}>
         <span>Total</span>
-        <span>{total.toFixed(2)}</span>
+        <span>$ {total.toFixed(2)}</span>
       </div>
       <div className={classes.actions}>
         <button className={classes["button--alt"]} onClick={props.onClick}>

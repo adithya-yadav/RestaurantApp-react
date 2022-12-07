@@ -5,45 +5,14 @@ import MealItemForm from "./MealItemForm";
 
 const Mealitem = (props) => {
   const cartCtx = useContext(CartContext);
-  function onAddToCardHandler (amount){
-    // console.log(amount)
-    // cartCtx.items.push({
-    //   id: props.id,
-    //   name: props.name,
-    //   amount:amount,
-    //   price: props.price,
-    // });
-    const itemInd =cartCtx.items.findIndex(item=>{
-      return item.id === props.id
-  })
-  if(itemInd===-1){
-    cartCtx.items.push({
-      id: props.id,
-      name: props.name,
-      amount:amount,
-      price: props.price,
-    });
-  }else{
-    cartCtx.items[itemInd].amount++
-  }
 
-    
-    // for(var i=0; i<cartCtx.items.length; i++){
-    //     if(cartCtx.items[i].id == props.id){
-    //         cartCtx.items[i].amount++
-    //         return
-    //     }else if(i===cartCtx.items.length-1 && cartCtx.items[i]!==props.id){
-    //         cartCtx.items.push({
-    //             id: props.id,
-    //             name: props.name,
-    //             amount:amount-1,
-    //             price: props.price,
-    //           });
-    //     }
-    // } 
-    console.log(cartCtx.items);
-    console.log(props.amount)
-    
+  function onAddToCardHandler(amount) {
+      cartCtx.addItem({
+        id: props.id,
+        name: props.name,
+        amount: amount,
+        price: props.price,
+      });
   }
 
   return (
